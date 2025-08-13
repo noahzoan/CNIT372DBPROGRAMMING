@@ -1,0 +1,45 @@
+-- Question #1
+
+CREATE TABLE AIRDB_ALL_INFO AS SELECT * FROM CNIT372TA.AIRDB_ALL_INFO;
+
+/* Q1 Query Results
+
+Table AIRDB_ALL_INFO created.
+
+*/
+
+-- Question #2
+
+ALTER TABLE AIRDB_ALL_INFO
+MODIFY (Origin_City_Name VARCHAR2(30 BYTE) NOT NULL,
+&nbsp; &nbsp; &nbsp; &nbsp; Dest_City_Name VARCHAR2(30 BYTE) NOT NULL);
+
+ALTER TABLE AIRDB_ALL_INFO
+MODIFY (Origin_State_Nm VARCHAR2(30 BYTE) NOT NULL,
+&nbsp; &nbsp; &nbsp; &nbsp; Dest_State_Nm VARCHAR2(30 BYTE) NOT NULL);
+
+ALTER TABLE AIRDB_ALL_INFO
+ADD CONSTRAINT unique_flight_combination UNIQUE (Origin_Airport_ID, Dest_Airport_ID, Fl_Num, Carrier, FL_DATE);
+
+/* Q2 Query Results
+
+Table AIRDB_ALL_INFO altered.
+
+
+Table AIRDB_ALL_INFO altered.
+
+
+Table AIRDB_ALL_INFO altered.
+
+
+*/
+
+CREATE TABLE AIRDB_AIRPORTS (
+&nbsp; &nbsp; AIRPORT_ID NUMBER,
+&nbsp; &nbsp; CITY_MARKET_ID NUMBER,
+&nbsp; &nbsp; AIRPORT_CODE VARCHAR2(3) PRIMARY KEY,
+&nbsp; &nbsp; CITY_NAME VARCHAR2(30),
+&nbsp; &nbsp; STATE_ABR VARCHAR2(2),
+&nbsp; &nbsp; STATE_FIPS NUMBER,
+&nbsp; &nbsp; STATE_NAME VARCHAR2(30)
+);
